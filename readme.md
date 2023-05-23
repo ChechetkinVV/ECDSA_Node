@@ -29,3 +29,9 @@ The server folder contains a node.js server using [express](https://expressjs.co
 The application should connect to the default server port (3042) automatically! 
 
 _Hint_ - Use [nodemon](https://www.npmjs.com/package/nodemon) instead of `node` to automatically restart the server on any changes.
+
+### Comments
+It was hard to finish the first week project because of libraries were changed. 
+I used this instructions https://www.npmjs.com/package/secp256k1, but it was neccesary to convert private and public keys back to uint8array. 
+For this I used the function: const fromHexString = (hexString) => Uint8Array.from(hexString.match(/.{1,2}/g).map((byte) => parseInt(byte, 16))); as fromHexString(privateKey).
+To prevent signature replaying I use nonce, which is incremented every sucsessfull transaction.
